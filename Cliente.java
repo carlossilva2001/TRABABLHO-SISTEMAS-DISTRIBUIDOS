@@ -50,9 +50,15 @@ public class Cliente {
             SIS sis = (SIS) registry.lookup("SIS");
 
             if(escolha == 1){
+                long inicio = System.currentTimeMillis();
                 resultado = sir.CalcularSIR(suceptivel, infectados, recuperados, populacaoTotal, beta, gamma, dias, passo);
+                long fim = System.currentTimeMillis();
+                System.out.println("Tempo de execução SIR: " + (fim - inicio) + " ms");
             } else if (escolha == 2){
+                long inicio = System.currentTimeMillis();
                 resultado = sis.CalcularSIS(suceptivel, infectados, populacaoTotal, beta, gamma, dias, passo);
+                long fim = System.currentTimeMillis();
+                System.out.println("Tempo de execução SIS: " + (fim - inicio) + " ms");
             } else {
                 System.out.println("Opção inválida. Encerrando o cliente.");
         }
